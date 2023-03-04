@@ -1,0 +1,5 @@
+FROM node:19
+
+WORKDIR /data
+
+RUN npm install -g yo generator-code
