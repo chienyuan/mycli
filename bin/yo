@@ -1,3 +1,7 @@
 #!/bin/bash
 
+# Using userns=keep-id, you can create a user in the container and 
+# assign it the same id as your user id on the host and this will 
+# map one-to-one in the container. So files you create in the container 
+# with that user you created will be own by you on the host and vice-versa.
 podman run -it --userns=keep-id -u $(id -u):$(id -g) --rm -v $(pwd):/data yo yo "$@"
